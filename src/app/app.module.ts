@@ -2,19 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { SeriesDetailComponent } from './pages/series-detail/series-detail.component';
-import { SeriesListComponent } from './pages/series-list/series-list.component';
+
+import { AuthModule } from './auth/auth.module';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SeriesDetailComponent,
-    SeriesListComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AuthModule, PagesModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
