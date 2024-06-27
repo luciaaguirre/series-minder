@@ -14,6 +14,7 @@ const routes: Routes = [
     component: SeriesDetailComponent,
   },
 ];
+
 @NgModule({
   declarations: [SeriesDetailComponent, SeriesListComponent],
   imports: [CommonModule, RouterModule.forChild(routes)],
