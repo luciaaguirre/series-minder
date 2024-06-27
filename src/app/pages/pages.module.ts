@@ -10,7 +10,7 @@ const routes: Routes = [
     component: SeriesListComponent,
   },
   {
-    path: 'series-detail',
+    path: 'series-detail/:id',
     component: SeriesDetailComponent,
   },
 ];
