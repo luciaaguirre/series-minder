@@ -1,13 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SeriesListComponent } from './pages/series-list/series-list.component';
+import { SeriesDetailComponent } from './pages/series-detail/series-detail.component';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'series-list',
-    pathMatch: 'full',
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
-  // Other potential high-level routes can go here
+  {
+    path: 'series-list',
+    component: SeriesListComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'series-detail/:id',
+    component: SeriesDetailComponent,
+    canActivate: [authGuard],
+  },
 ];
 
 @NgModule({

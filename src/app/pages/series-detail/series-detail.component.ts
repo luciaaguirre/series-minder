@@ -11,7 +11,9 @@ export class SeriesDetailComponent {
   detailId: string = '';
 
   constructor() {
-    this.detailId = this.route.snapshot.paramMap.get('id')!;
-    console.log(this.detailId);
+    const idParam = this.route.snapshot.paramMap.get('id');
+    if (idParam) {
+      this.detailId = idParam;
+    }
   }
 }
