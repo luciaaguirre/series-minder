@@ -16,8 +16,9 @@
   </div>
 </form>
 
-<button type="submit">Registrarme</button>
+<button type="submit" [disabled]="registerForm.invalid">Registrarme</button>
 
 <div style="border: 1px solid red; padding: 20px; margin: 20px">
   {{ registerForm.value | json }}
+  invalid => {{ registerForm.invalid }}
 </div>
