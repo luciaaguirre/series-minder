@@ -1,1 +1,23 @@
-<p>register works!</p>
+<p>register page</p>
+
+<form [formGroup]="registerForm" (ngSubmit)="sendForm()">
+  <div>
+    <label for="texto">Nombre</label>
+    <input type="text" formControlName="texto" />
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input type="email" formControlName="email" />
+  </div>
+
+  <div>
+    <label for="password"> Contraseña</label>
+    <input type="password" formControlName="password" />
+  </div>
+</form>
+
+<button type="submit">Registrarme</button>
+
+<div style="border: 1px solid red; padding: 20px; margin: 20px">
+  {{ registerForm.value | json }}
+</div>
