@@ -8,7 +8,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, PagesModule, AuthModule, ReactiveFormsModule∫],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    PagesModule,
+    AuthModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

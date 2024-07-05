@@ -16,4 +16,11 @@ export class RegisterComponent {
       password: new FormControl(),
     });
   }
+
+  //Enviar formulario de registro
+  sendForm() {
+    if (this.registerForm.valid) {
+      console.log(this.registerForm.value);
+    }
+  }
 }
