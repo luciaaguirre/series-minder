@@ -2,12 +2,19 @@
 <form [formGroup]="loginForm" (ngSubmit)="sendForm()">
   <div>
     <label for="email">Email</label>
-    <input type="email" formControlName="email" />
+    <input type="email" formControlName="email" placeholder="email" />
   </div>
   <div>
     <label for="password"> Contraseña</label>
-    <input type="password" formControlName="password" />
+    <input type="password" formControlName="password" placeholder="password" />
   </div>
 
-  <button type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="loginForm.invalid"
+  >
+    Iniciar sesión
+  </button>
 </form>
