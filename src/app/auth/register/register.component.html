@@ -3,16 +3,23 @@
 <form [formGroup]="registerForm" (ngSubmit)="sendForm()">
   <div>
     <label for="texto">Nombre</label>
-    <input type="text" formControlName="texto" />
+    <input type="text" formControlName="texto" placeholder="name" />
   </div>
   <div>
     <label for="email">Email</label>
-    <input type="email" formControlName="email" />
+    <input type="email" formControlName="email" placeholder="email" />
   </div>
 
   <div>
     <label for="password"> Contraseña</label>
-    <input type="password" formControlName="password" />
+    <input type="password" formControlName="password" placeholder="password" />
   </div>
-  <button type="submit" [disabled]="registerForm.invalid">Registrarme</button>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="registerForm.invalid"
+  >
+    Registrarme
+  </button>
 </form>
