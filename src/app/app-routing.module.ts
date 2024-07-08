@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SeriesListComponent } from './pages/series-list/series-list.component';
 import { SeriesDetailComponent } from './pages/series-detail/series-detail.component';
 import { authGuard } from './guards/auth.guard';
+import { PagesModule } from './pages/pages.module';
 
 const routes: Routes = [
   {
@@ -22,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), PagesModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
