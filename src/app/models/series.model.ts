@@ -1,5 +1,6 @@
 export interface SeriesModel {
-  name: string;
   id: number;
+  name: string;
+
   description: string;
 }
