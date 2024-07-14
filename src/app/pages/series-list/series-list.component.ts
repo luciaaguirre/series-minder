@@ -24,6 +24,10 @@ export class SeriesListComponent implements OnInit, OnDestroy {
       });
   }
 
+  changeSelectedSeries(series: SeriesModel): void {
+    this.seriesService.setSeries(series);
+  }
+
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
