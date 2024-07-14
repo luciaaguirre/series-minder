@@ -17,11 +17,14 @@ export class AppComponent {
   title = 'series-minder';
 
   constructor() {
-    this.seriesService.seriesSelected$.subscribe({
-      next: (value: SeriesModel) => {
-        console.log('APP_COMPONENT SERIES_SELECTED => ', value);
-        this.seriesSelected = value;
-      },
-    });
+    setTimeout(() => {
+      console.log('INIT SUBSCRIPTIOS SERIES SERVICCE FROM APP_COMPONENT');
+      this.seriesService.seriesSelected$.subscribe({
+        next: (value: SeriesModel) => {
+          console.log('APP_COMPONENT SERIES_SELECTED =>', value);
+          this.seriesSelected = value;
+        },
+      });
+    }, 5000);
   }
 }
