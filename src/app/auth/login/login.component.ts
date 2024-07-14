@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login-component',
@@ -11,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  private authService: AuthService = inject(AuthService);
   loginForm: FormGroup;
 
   constructor() {
@@ -27,7 +29,11 @@ export class LoginComponent {
 
   sendForm() {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
+      /*    console.log(this.loginForm.value); */
+      this.authService.login(
+        this.loginForm.value.email,
+        this.loginForm.value.password
+      );
     }
   }
 }
