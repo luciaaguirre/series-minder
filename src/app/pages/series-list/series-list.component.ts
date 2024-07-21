@@ -3,6 +3,10 @@ import { SeriesService } from 'src/app/services/series.service';
 import { SeriesModel } from 'src/app/models/series.model';
 import { Subject, takeUntil } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import {
+  UserInfoResponse,
+  UserInfoService,
+} from 'src/app/services/user-info.service';
 
 @Component({
   selector: 'app-series-list',
@@ -11,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SeriesListComponent implements OnInit, OnDestroy {
   private seriesService: SeriesService = inject(SeriesService);
-  private httpClient = inject(HttpClient);
+  private userInfoService: UserInfoService = inject(UserInfoService);
   private destroy$: Subject<void> = new Subject();
   seriesList: SeriesModel[] = [];
 
@@ -24,22 +28,15 @@ export class SeriesListComponent implements OnInit, OnDestroy {
           this.seriesList = value;
         },
       });
-    this.httpClient
-      .put('https://jsonplaceholder.typicode.com/posts/1', {
-        id: 1,
-        title: 'Pruebas HTTP',
-        body: 'Esto es un body',
-        userId: 1,
-      })
-      .subscribe({
-        next: (response) => {
-          console.log(response);
-        },
-      });
   }
 
   changeSelectedSeries(series: SeriesModel): void {
     this.seriesService.setSeries(series);
+    this.userInfoService.getUserInfo('1').subscribe({
+      next: (res: string) => {
+        console.log(res);
+      },
+    });
   }
 
   ngOnDestroy(): void {
