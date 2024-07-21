@@ -12,7 +12,7 @@ export class AppComponent {
   seriesService: SeriesService = inject(SeriesService);
   authService: AuthService = inject(AuthService);
   seriesSelected: SeriesModel = {
-    name: 'no tea selected',
+    name: 'no series selected',
     id: -1,
     description: 'none',
   };
