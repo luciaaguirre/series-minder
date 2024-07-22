@@ -2,11 +2,13 @@ import { Component, inject } from '@angular/core';
 import { SeriesService } from './services/series.service';
 import { SeriesModel } from './models/series.model';
 import { AuthService } from './services/auth.service';
+import { RickAndMortyService } from './services/rickandmorty';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [RickAndMortyService],
 })
 export class AppComponent {
   seriesService: SeriesService = inject(SeriesService);
@@ -17,6 +19,8 @@ export class AppComponent {
     description: 'none',
   };
   title = 'series-minder';
+  private rickandmorty = inject(RickAndMortyService);
+  characters$ = this.rickandmorty.getAllCharacters('3');
 
   constructor() {
     console.log('INIT SUBSCRIPTIOS SERIES SERVICCE FROM APP_COMPONENT');
